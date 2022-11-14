@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private GameObject shelterPrefab;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Slider progressSlider;
     [SerializeField] private int groundAmount;
-    private List<GameObject> grounds;
+    private PolygonCollider2D shelterCollider;
+    private PlayerController playerController;
+    private float startDistance;
+    private float currentDistance;
+
+    private void Awake()
+    {
+        playerController = player.GetComponent<PlayerController>();
+    }
 
     private void Start()
     {
@@ -16,6 +27,21 @@ public class GameManager : MonoBehaviour
             Instantiate(groundPrefab, new Vector2(groundPrefab.transform.localScale.x * i, groundPrefab.transform.position.y), Quaternion.identity);
         }
 
-        Instantiate(shelterPrefab, new Vector2(groundPrefab.transform.localScale.x * groundAmount + groundPrefab.transform.localScale.x * 0.5f - shelterPrefab.transform.localScale.x * 0.5f, shelterPrefab.transform.position.y), Quaternion.identity); ;
+        shelterCollider = Instantiate(shelterPrefab, new Vector2(groundPrefab.transform.localScale.x * groundAmount + groundPrefab.transform.localScale.x * 0.5f - shelterPrefab.transform.localScale.x * 0.5f, shelterPrefab.transform.position.y), Quaternion.identity).GetComponent<PolygonCollider2D>();
+        startDistance = Vector2.Distance(player.transform.position, shelterCollider.transform.position);
+    }
+
+    private void Update()
+    {
+        currentDistance = Vector2.Distance(player.transform.position, shelterCollider.transform.position);
+
+        if (progressSlider.value < 0.99f)
+        {
+            progressSlider.value = (startDistance - currentDistance) / startDistance;
+        }
+        else
+        {
+            progressSlider.value = progressSlider.maxValue;
+        }
     }
 }
