@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,14 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider progressSlider;
     [SerializeField] private int groundAmount;
     private PolygonCollider2D shelterCollider;
-    private PlayerController playerController;
     private float startDistance;
     private float currentDistance;
-
-    private void Awake()
-    {
-        playerController = player.GetComponent<PlayerController>();
-    }
 
     private void Start()
     {

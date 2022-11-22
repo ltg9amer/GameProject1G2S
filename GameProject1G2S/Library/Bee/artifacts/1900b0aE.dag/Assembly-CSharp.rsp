@@ -384,7 +384,7 @@
 "Assets/Scripts/CrowdMove.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerController.cs"
-"Assets/Scripts/StaminaBar.cs"
+"Assets/Scripts/Stamina.cs"
 -langversion:9.0
 
 /deterministic

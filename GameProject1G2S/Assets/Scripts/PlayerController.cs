@@ -12,13 +12,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private float moveSpeed;
     private bool isDashing;
+    public bool IsDashing => isDashing;
     private bool isCrouching;
-    private bool isCameraLimit; 
+    private bool isCameraLimit;
 
     private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -38,6 +39,10 @@ public class PlayerController : MonoBehaviour
             limit.x = 1f;
             isCameraLimit = true;
         }
+        else
+        {
+            isCameraLimit = false;
+        }
 
         transform.position = Camera.main.ViewportToWorldPoint(limit) - new Vector3(capsuleCollider2D.size.x * 0.5f, 0f);
     }
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = creepSpeed;
         }
-        else if (isDashing = !isCameraLimit && Input.GetKey(KeyCode.LeftShift))
+        else if (isDashing = !isCrouching && !isCameraLimit && move != 0 && Input.GetKey(KeyCode.LeftShift) && Stamina.currentStamina > 0f)
         {
             moveSpeed = dashSpeed;
         }
