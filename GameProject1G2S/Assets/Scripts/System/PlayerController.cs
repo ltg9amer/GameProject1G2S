@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D capsuleCollider2D;
     public CapsuleCollider2D CapsuleCollider2D => capsuleCollider2D;
     private Rigidbody2D _rigidbody2D;
+    private Animator animator;
     private float moveSpeed;
     private bool isDashing;
     public bool IsDashing => isDashing;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -74,6 +76,14 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += new Vector3(move * moveSpeed * Time.deltaTime, 0f, 0f);
+
+        if (move != 0f)
+        {
+            transform.localScale = new Vector3(move, 1, 1);
+        }
+
+        animator.SetBool("isWalking", move != 0f);
+        animator.SetBool("isDashing", isDashing);
     }
 
     private void Jump()
@@ -84,6 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
+
+        animator.SetBool("isJumping", transform.position.y > 1.515f && !isCrouching);
     }
 
     private void Crouch()
@@ -102,5 +114,7 @@ public class PlayerController : MonoBehaviour
             capsuleCollider2D.offset = Vector2.zero;
             capsuleCollider2D.size *= new Vector2(1f, 2f);
         }
+
+        animator.SetBool("isCrouching", isCrouching);
     }
 }
