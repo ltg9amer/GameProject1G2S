@@ -40,6 +40,10 @@ public class CrowdMove : MonoBehaviour, IGimmick
 
                 PlayerPrefs.SetInt(deathName, death.experience ? 1 : 0);
             }
+            else
+            {
+                throw new Exception($"{deathName}라는 이름의 죽음이 존재하지 않습니다");
+            }
         }
         catch (Exception e)
         {

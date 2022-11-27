@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,175 +139,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: PlayerWalkRun_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbb23a56b23409e4ca6e8bf78f0fcb85
-      internalID: 1603645462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_1
-      rect:
-        serializedVersion: 2
-        x: 850
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f7ba8f771daf5b4a8c6c31cec7e397d
-      internalID: 154684411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_2
-      rect:
-        serializedVersion: 2
-        x: 1700
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 968dca90baf42dd41b876e5accfb4e93
-      internalID: 92436135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_3
-      rect:
-        serializedVersion: 2
-        x: 2550
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3d4b07c84f9c6d469ff374d7ecfa710
-      internalID: 1030875122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_4
-      rect:
-        serializedVersion: 2
-        x: 3400
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26a78b1cb8295b44386008f4251c3be5
-      internalID: -1783394316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_5
-      rect:
-        serializedVersion: 2
-        x: 4250
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10a0f411d0eb0e9479bf92abc65cb69f
-      internalID: -795495737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_6
-      rect:
-        serializedVersion: 2
-        x: 5100
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aeb51d25b4de83543a1c39662a5e9019
-      internalID: 1667062940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWalkRun_7
-      rect:
-        serializedVersion: 2
-        x: 5950
-        y: 0
-        width: 850
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b99de7675dc96774fbdd79371e5b0fbc
-      internalID: 1928206072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -318,15 +150,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PlayerWalkRun_4: -1783394316
-      PlayerWalkRun_3: 1030875122
-      PlayerWalkRun_6: 1667062940
-      PlayerWalkRun_1: 154684411
-      PlayerWalkRun_0: 1603645462
-      PlayerWalkRun_5: -795495737
-      PlayerWalkRun_2: 92436135
-      PlayerWalkRun_7: 1928206072
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
