@@ -12,6 +12,10 @@ public class DeathCollection : MonoBehaviour
 
     private void Awake()
     {
+#if UNITY_EDITOR
+        PlayerPrefs.DeleteAll();
+#endif
+
         if (instance == null)
         {
             instance = this;
@@ -40,7 +44,7 @@ public class DeathCollection : MonoBehaviour
 
     private void Start()
     {
-        deaths = transform.GetChild(0).GetComponentsInChildren<Death>().ToList();
+        deaths = transform.GetChild(0).GetChild(0).GetComponentsInChildren<Death>().ToList();
 
         for (int i = 0; i < deaths.Count; i++)
         {

@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
 
-        animator.SetBool("isJumping", transform.position.y > 1.515f && !isCrouching);
+        animator.SetBool("isJumping", transform.position.y > 1.515f);
     }
 
     private void Crouch()

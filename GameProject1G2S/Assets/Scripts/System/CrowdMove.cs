@@ -5,12 +5,11 @@ public class CrowdMove : MonoBehaviour, IGimmick
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private string deathName;
+    private GameEndProcess gameEndProcess;
 
     private void Awake()
     {
-#if UNITY_EDITOR
-        PlayerPrefs.DeleteAll();
-#endif
+        gameEndProcess = GameObject.Find("Player").GetComponent<GameEndProcess>();
     }
 
     private void Update()
@@ -23,8 +22,6 @@ public class CrowdMove : MonoBehaviour, IGimmick
         if (collision.tag == "Player")
         {
             CheckExperience();
-
-            collision.gameObject.GetComponent<GameEndProcess>().DeathName = deathName;
         }
     }
 
@@ -34,16 +31,17 @@ public class CrowdMove : MonoBehaviour, IGimmick
         {
             Death death = null;
 
-            if (death = DeathCollection.instance.transform.GetChild(0).Find(deathName).GetComponent<Death>())
+            if (death = DeathCollection.instance.transform.GetChild(0).GetChild(0).Find(deathName).GetComponent<Death>())
             {
                 death.experience = true;
+                gameEndProcess.DeathName = deathName;
 
                 PlayerPrefs.SetInt(deathName, death.experience ? 1 : 0);
             }
         }
-        catch (Exception e)
+        catch
         {
-            Debug.Log(e.Message);
+            Debug.LogError("해당하는 죽음이 존재하지 않습니다");
         }
     }
 }
