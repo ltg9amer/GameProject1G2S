@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [SerializeField] private List<GameObject> gimmicks;
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private GameObject shelterPrefab;
@@ -13,6 +15,23 @@ public class GameManager : MonoBehaviour
     private BoxCollider2D shelterCollider;
     private float startDistance;
     private float currentDistance;
+    private bool isTutorialClear;
+    public bool IsTutorialClear
+    {
+        get { return isTutorialClear; }
+        set
+        {
+            isTutorialClear = value;
+
+            PlayerPrefs.SetInt("IsTutorialClear", isTutorialClear ? 1 : 0);
+        }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+        isTutorialClear = PlayerPrefs.GetInt("IsTutorialClear", 0) != 0;
+    }
 
     private void Start()
     {

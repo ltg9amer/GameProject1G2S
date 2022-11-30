@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject keyInfos;
     [SerializeField] private float creepSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float dashSpeed;
@@ -96,6 +97,34 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetBool("isJumping", transform.position.y > 1.515f);
+
+        if (groundHit && !GameManager.instance.IsTutorialClear)
+        {
+            switch (groundHit.collider.name)
+            {
+                case "Ground 0":
+                    keyInfos.transform.GetChild(0).gameObject.SetActive(true);
+
+                    break;
+                case "Ground 1":
+                    keyInfos.transform.GetChild(1).gameObject.SetActive(true);
+
+                    break;
+                case "Ground 2":
+                    keyInfos.transform.GetChild(2).gameObject.SetActive(true);
+
+                    break;
+                default:
+                    GameManager.instance.IsTutorialClear = true;
+
+                    for (int i = 0; i < keyInfos.transform.childCount; i++)
+                    {
+                        keyInfos.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+
+                    break;
+            }
+        }
     }
 
     private void Crouch()

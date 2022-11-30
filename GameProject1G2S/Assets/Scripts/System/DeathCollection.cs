@@ -12,9 +12,7 @@ public class DeathCollection : MonoBehaviour
 
     private void Awake()
     {
-#if UNITY_EDITOR
         PlayerPrefs.DeleteAll();
-#endif
 
         if (instance == null)
         {

@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
@@ -27,7 +26,7 @@ public class Ground : MonoBehaviour
                 }
             }
 
-            if (nextGround != null)
+            if (nextGround != null && nextGround.transform.childCount > 1)
             {
                 nextGround.transform.GetChild(1).gameObject.SetActive(true);
             }
