@@ -5,7 +5,7 @@ public class GameEndProcess : MonoBehaviour
 {
     private delegate void OnEnd<T>(T endKey);
 
-    private Death death;
+    public static Death death;
     private OnEnd<string> onDead;
     private OnEnd<bool> onClear;
     private bool isEnd;
@@ -43,10 +43,9 @@ public class GameEndProcess : MonoBehaviour
         onDead = deathKey =>
         {
             isEnd = true;
-            death = DeathCollection.instance.transform.GetChild(0).Find(deathKey).GetComponent<Death>();
+            death = DeathCollection.instance.transform.GetChild(0).GetChild(0).Find(deathKey).GetComponent<Death>();
 
-            Time.timeScale = 0f;
-            //SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene("GameOverScene");
 
         };
 
@@ -54,8 +53,7 @@ public class GameEndProcess : MonoBehaviour
         {
             isEnd = clearKey;
 
-            Time.timeScale = 0f;
-            //SceneManager.LoadScene("GameClearScene");
+            SceneManager.LoadScene("GameClearScene");
         };
     }
 

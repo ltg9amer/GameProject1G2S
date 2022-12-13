@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
+    [SerializeField] private GameObject keyInfos;
     [SerializeField] private Slider staminaSlider;
     [SerializeField] private float maxStamina;
     private PlayerController playerController;
@@ -19,6 +20,8 @@ public class Stamina : MonoBehaviour
     private void Update()
     {
         StaminaProcess();
+
+        keyInfos.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0f, 2f, 0f));
     }
 
     private void StaminaProcess()
